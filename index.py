@@ -19,7 +19,7 @@ response = s3_client.list_objects_v2(
 client = boto3.client('s3')
 s3_client.put_object(Body=file_name, Bucket='smart-devl-sfbu-us-east-1', Key=s3_file["Key"])
     # put data to db
-    client_postgres = boto3.resource('rds-data')
+    client_postgres = boto3.resource('FNMA-VULT::AWS::GEA::/smart/smart-clu-smartdb3/smart_devl::fnma-map::jdbc:postgresql://host:port/dbname?&ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactor')
     rResponse = client_postgres.put_item(
         TableName = 'bch_In', 'srvg_rcon',
         Item = file_name
